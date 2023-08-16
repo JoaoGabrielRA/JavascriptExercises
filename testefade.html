@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transição de Posicionamento</title>
+    <style>
+        .pai {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: lightgray;
+        }
+
+        .filho {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            transition: top 0.5s ease-in-out; /* Adicionando uma transição suave para a propriedade "top" */
+        }
+
+        .azul {
+            top: 50px;
+            left: 20px;
+            background-color: blue;
+            z-index: 10;
+        }
+
+        .vermelho {
+            top: 50px;
+            left: 20px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="pai">
+        <div class="filho azul"></div>
+        <div class="filho vermelho">MENU CLICADO</div>
+    </div>  
+
+    <select id="selectPosicao">
+        <option value="acima">Acima</option>
+        <option value="abaixo">Abaixo</option>
+    </select>
+
+    <script>
+        const selectPosicao = document.getElementById("selectPosicao");
+        const filhoVermelho = document.querySelector(".vermelho");
+        let transicaoAplicada = false;
+
+        selectPosicao.addEventListener("change", function() {
+            if (!transicaoAplicada) {
+                if (selectPosicao.value === "abaixo") {
+                    filhoVermelho.style.top = "150px"; // Move o elemento vermelho abaixo do elemento azul
+                }
+                transicaoAplicada = true;
+            }
+        });
+    </script>
+</body>
+</html>
