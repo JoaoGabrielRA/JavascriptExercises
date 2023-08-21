@@ -1,0 +1,21 @@
+body{
+    background-color: antiquewhite;
+}
+.container{
+    margin-top: 100px;
+    padding:40px;
+}
+form{
+    margin-top:50px;
+}
+
+#myFormr{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+input{
+    height: 45px;
+}
